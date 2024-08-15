@@ -19,6 +19,7 @@ namespace Agents
 
         private readonly List<Agent> _acticveAgents = new();
         private ObjectPool<Agent> _pool;
+        private int _nextAgentGUID = 0;
 
         public int NumberOfAgents => _acticveAgents.Count;
 
@@ -45,6 +46,7 @@ namespace Agents
             var agent = _pool.Get();
             agent.transform.position = GetRandomMapPosition();
             agent.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+            agent.Init(_nextAgentGUID++);
             _acticveAgents.Add(agent);
             OnNumberOfAgentsChanged?.Invoke();
         }

@@ -16,6 +16,8 @@ namespace Agents
         private void Start()
         {
             _animator.SetBool(_animIDGrounded, true);
+            _animator.SetFloat(_animIDSpeed, 1);
+            _animator.SetFloat(_animIDMotionSpeed, 1.5f);
         }
     }
 }
