@@ -47,7 +47,7 @@ namespace Agents
             _tickService.OnPauseStateChanged -= UpdateSpeedOfAgents;
         }
 
-        public void SpawnAgent()
+        public void RequestAgentSpawn()
         {
             var agent = _pool.Get();
             agent.transform.position = GetRandomMapPosition();
@@ -58,7 +58,7 @@ namespace Agents
             OnNumberOfAgentsChanged?.Invoke();
         }
 
-        public void KillAgent()
+        public void RequestAgentKill()
         {
             if (_acticveAgents.Count <= 0)
             {

@@ -21,8 +21,8 @@ namespace UI
             _agentService.OnNumberOfAgentsChanged += UpdateAgentsAmount;
             UpdateAgentsAmount();
 
-            _spawnAgentButton.onClick.AddListener(_agentService.SpawnAgent);
-            _killAgentButton.onClick.AddListener(_agentService.KillAgent);
+            _spawnAgentButton.onClick.AddListener(_agentService.RequestAgentSpawn);
+            _killAgentButton.onClick.AddListener(_agentService.RequestAgentKill);
             _killAllAgentsButton.onClick.AddListener(KillAllAgents);
         }
 
@@ -30,8 +30,8 @@ namespace UI
         {
             _agentService.OnNumberOfAgentsChanged -= UpdateAgentsAmount;
 
-            _spawnAgentButton.onClick.RemoveListener(_agentService.SpawnAgent);
-            _killAgentButton.onClick.RemoveListener(_agentService.KillAgent);
+            _spawnAgentButton.onClick.RemoveListener(_agentService.RequestAgentSpawn);
+            _killAgentButton.onClick.RemoveListener(_agentService.RequestAgentKill);
             _killAllAgentsButton.onClick.RemoveListener(KillAllAgents);
         }
 
@@ -56,7 +56,7 @@ namespace UI
         {
             for (int i = _agentService.NumberOfAgents; i > 0; i--)
             {
-                _agentService.KillAgent();
+                _agentService.RequestAgentKill();
             }
         }
     }
