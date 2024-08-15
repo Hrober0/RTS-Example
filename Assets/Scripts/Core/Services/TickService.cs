@@ -8,11 +8,14 @@ namespace Core
     public class TickService : MonoBehaviour, ITickService
     {
         public event Action OnGameSpeedChanged;
+        public event Action OnPauseStateChanged;
 
         public float GameSpeed { get; private set; }
+        public bool IsPaused { get; private set; }
 
         IEnumerator IService.Init()
         {
+            GameSpeed = 1.0f;
             yield return null;
         }
 
@@ -23,8 +26,14 @@ namespace Core
 
         public void SetGameSpeed(float speed)
         {
-            GameSpeed = speed;
+            GameSpeed = Mathf.Max(speed, 0.1f);
             OnGameSpeedChanged?.Invoke();
+        }
+        
+        public void SetPause(bool pause)
+        {
+            IsPaused = pause;
+            OnPauseStateChanged?.Invoke();
         }
     }
 }
