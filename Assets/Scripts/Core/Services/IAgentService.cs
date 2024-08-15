@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Core
 {
@@ -10,5 +11,7 @@ namespace Core
 
         void SpawnAgent();
         void KillAgent();
+
+        Vector3 GetRandomMapPosition();
     }
 }
