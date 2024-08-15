@@ -54,7 +54,7 @@ namespace UI
 
         private void KillAllAgents()
         {
-            for (int i = 0; i < _agentService.NumberOfAgents; i++)
+            for (int i = _agentService.NumberOfAgents; i >= 0; i--)
             {
                 _agentService.KillAgent();
             }
