@@ -13,6 +13,8 @@ namespace Core
         [SerializeField]
         private InterfaceField<IService>[] _services;
 
+        private readonly List<IService> _inicializedServices = new();
+
         public static ServiceManager Instance { get; private set; }
 
         private void Start()
@@ -28,19 +30,48 @@ namespace Core
             Deinicilize();
         }
 
+        public TSystem Get<TSystem>() where TSystem : IService
+        {
+            if (_servicesByType.TryGetValue(typeof(TSystem), out var service))
+            {
+                if (service == null)
+                {
+                    Debug.LogError($"Service {typeof(TSystem)} is not register in {name}", this);
+                    return default;
+                }
+
+                return (TSystem)service;
+            }
+
+            foreach (var newService in _inicializedServices)
+            {
+                if (newService is TSystem typedService)
+                {
+                    _servicesByType.Add(typeof(TSystem), typedService);
+                    return typedService;
+                }
+            }
+
+            Debug.LogError($"Service {typeof(TSystem)} is not register in {name}", this);
+            _servicesByType.Add(typeof(TSystem), null);
+            return default;
+        }
+
         private IEnumerator Initialize()
         {
             Debug.Log("=== <b>Game Systems Initialization</b> ===");
-            foreach (var service in _services)
+            foreach (var serviceField in _services)
             {
-                if (!_servicesByType.TryAdd(service.Value.GetType(), service.Value))
+                var service = serviceField.Value;
+                if (!_servicesByType.TryAdd(service.GetType(), service))
                 {
                     Debug.LogWarning($"Duplicated {service.GetType()} system");
                 }
                 else
                 {
-                    Debug.Log($"<b>Initialization...</b> {service.Value.GetType()}");
-                    yield return StartCoroutine(service.Value.Init());
+                    Debug.Log($"<b>Initialization...</b> {service.GetType()}");
+                    yield return StartCoroutine(service.Init());
+                    _inicializedServices.Add(service);
                 }
             }
         }
@@ -48,25 +79,14 @@ namespace Core
         private void Deinicilize()
         {
             Debug.Log("=== <b>Game System Desincilization</b> ===");
-            for (int i = _services.Length - 1; i >= 0; i--)
+            for (int i = _inicializedServices.Count - 1; i >= 0; i--)
             {
-                var service = _services[i].Value;
+                var service = _inicializedServices[i];
                 Debug.Log($"<b>Desincilization...</b> {service.GetType()}");
                 service.Deinit();
+                _inicializedServices.RemoveAt(i);
             }
-            _servicesByType.Clear();
             Instance = null;
-        }
-
-        public TSystem Get<TSystem>() where TSystem : IService
-        {
-            if (_servicesByType.TryGetValue(typeof(TSystem), out var service))
-            {
-                return (TSystem)service;
-            }
-
-            Debug.LogError($"Service {typeof(TSystem)} is not register in {name}", this);
-            return default;
         }
     }
 }
