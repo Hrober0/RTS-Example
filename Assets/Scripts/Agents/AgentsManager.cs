@@ -11,6 +11,7 @@ namespace Agents
     public class AgentsManager : MonoBehaviour, IAgentService
     {
         public event Action OnNumberOfAgentsChanged;
+        public event Action<INotification> OnNotification;
 
         [SerializeField] private Agent _agentPrefab;
         [SerializeField] private LayerMask _groundMask;
@@ -54,6 +55,7 @@ namespace Agents
             agent.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
             agent.Init(_nextAgentGUID++);
             agent.ChangeSpeed(_tickService.IsPaused ? 0 : _tickService.GameSpeed);
+            agent.OnReachedTarget += SendAgentReachedNotyfication;
             _acticveAgents.Add(agent);
             OnNumberOfAgentsChanged?.Invoke();
         }
@@ -69,6 +71,8 @@ namespace Agents
             var randomIndex = Random.Range(0, _acticveAgents.Count);
             var agent = _acticveAgents[randomIndex];
             _acticveAgents.RemoveAt(randomIndex);
+
+            agent.OnReachedTarget -= SendAgentReachedNotyfication;
 
             _pool.Release(agent);
 
@@ -116,6 +120,11 @@ namespace Agents
             {
                 agent.ChangeSpeed(speed);
             }
+        }
+
+        private void SendAgentReachedNotyfication(Agent agent)
+        {
+            OnNotification?.Invoke(new AgentReachedTargetNotification(agent));
         }
 
         private void OnDrawGizmosSelected()

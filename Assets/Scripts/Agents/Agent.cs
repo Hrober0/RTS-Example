@@ -10,7 +10,7 @@ namespace Agents
 {
     public class Agent : MonoBehaviour
     {
-        public event Action OnReachedTarget;
+        public event Action<Agent> OnReachedTarget;
         public event Action OnMovementSpeedChanged;
 
         [SerializeField] private float _movementSpeed = 1f;
@@ -89,7 +89,7 @@ namespace Agents
 
         private void ReachedTarget()
         {
-            OnReachedTarget?.Invoke();
+            OnReachedTarget?.Invoke(this);
             SetNewPath();
         }
     }
