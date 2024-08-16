@@ -20,6 +20,7 @@ namespace Agents
         private readonly List<Agent> _acticveAgents = new();
         private ObjectPool<Agent> _pool;
         private int _nextAgentGUID = 0;
+        private ITickService _tickService;
 
         public int NumberOfAgents => _acticveAgents.Count;
 
@@ -33,25 +34,31 @@ namespace Agents
                 defaultCapacity: 100
                 );
 
+            _tickService = ServiceManager.Instance.Get<ITickService>();
+            _tickService.OnGameSpeedChanged += UpdateSpeedOfAgents;
+            _tickService.OnPauseStateChanged += UpdateSpeedOfAgents;
+
             yield return null;
         }
 
         void IService.Deinit()
         {
-            
+            _tickService.OnGameSpeedChanged -= UpdateSpeedOfAgents;
+            _tickService.OnPauseStateChanged -= UpdateSpeedOfAgents;
         }
 
-        public void SpawnAgent()
+        public void RequestAgentSpawn()
         {
             var agent = _pool.Get();
             agent.transform.position = GetRandomMapPosition();
             agent.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
             agent.Init(_nextAgentGUID++);
+            agent.ChangeSpeed(_tickService.IsPaused ? 0 : _tickService.GameSpeed);
             _acticveAgents.Add(agent);
             OnNumberOfAgentsChanged?.Invoke();
         }
 
-        public void KillAgent()
+        public void RequestAgentKill()
         {
             if (_acticveAgents.Count <= 0)
             {
@@ -100,6 +107,15 @@ namespace Agents
 
             position = default;
             return false;
+        }
+
+        private void UpdateSpeedOfAgents()
+        {
+            var speed = _tickService.IsPaused ? 0 : _tickService.GameSpeed;
+            foreach (var agent in _acticveAgents)
+            {
+                agent.ChangeSpeed(speed);
+            }
         }
 
         private void OnDrawGizmosSelected()

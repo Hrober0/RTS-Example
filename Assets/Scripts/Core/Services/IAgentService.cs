@@ -9,8 +9,8 @@ namespace Core
 
         int NumberOfAgents { get; }
 
-        void SpawnAgent();
-        void KillAgent();
+        void RequestAgentSpawn();
+        void RequestAgentKill();
 
         Vector3 GetRandomMapPosition();
     }
