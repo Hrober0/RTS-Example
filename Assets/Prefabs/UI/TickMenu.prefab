@@ -727,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5538090595358531020, guid: 63eef6696e5238d4c93fe35e1bf2bbb6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5538090595358531020, guid: 63eef6696e5238d4c93fe35e1bf2bbb6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6994905329103812521, guid: 63eef6696e5238d4c93fe35e1bf2bbb6, type: 3}
       propertyPath: m_text
-      value: +0.1x
+      value: +0.5x
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63eef6696e5238d4c93fe35e1bf2bbb6, type: 3}
