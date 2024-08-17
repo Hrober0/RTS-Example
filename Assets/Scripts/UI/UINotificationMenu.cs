@@ -20,7 +20,7 @@ namespace UI
                 createFunc: () =>
                 {
                     var notification = Instantiate(_notificationPrefab);
-                    notification.transform.SetParent(_notificationParent);
+                    notification.transform.SetParent(_notificationParent, false);
                     return notification;
                 });
         }
