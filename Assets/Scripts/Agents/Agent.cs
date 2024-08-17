@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PathFinding;
 using Core;
 using DG.Tweening;
+using Pathfinding;
 
 namespace Agents
 {
@@ -15,10 +15,10 @@ namespace Agents
 
         [SerializeField] private float _movementSpeed = 1f;
         [SerializeField] private float _rotationTime = 0.3f;
+        [SerializeField] private Seeker _seeker;
 
-        private IPathFindingService _pathFindingService;
         private IAgentService _agentService;
-        private Vector3[] _path;
+        private Path _path;
         private int _pathIndex;
 
         private float _speedMultiplier = 1f;
@@ -26,6 +26,11 @@ namespace Agents
 
         public int Guid { get; private set; }
         public float MovementSpeed => _movementSpeed * _speedMultiplier;
+
+        private void Start()
+        {
+            _seeker.pathCallback = SetNewPath;
+        }
 
         private void OnDisable()
         {
@@ -35,10 +40,9 @@ namespace Agents
         public void Init(int guid)
         {
             Guid = guid;
-            _pathFindingService = ServiceManager.Instance.Get<IPathFindingService>();
             _agentService = ServiceManager.Instance.Get<IAgentService>();
 
-            SetNewPath();
+            RequestNewPah();
         }
 
         public void ChangeSpeed(float speedMultiplier)
@@ -51,17 +55,22 @@ namespace Agents
             }
         }
 
-        private void SetNewPath()
+        private void RequestNewPah()
         {
             var target = _agentService.GetRandomMapPosition();
-            _path = _pathFindingService.GetPathToPoint(target);
+            _seeker.StartPath(transform.position, target);
+        }
+
+        private void SetNewPath(Path path)
+        {
+            _path = path;
             _pathIndex = 0;
-            GoToPathPoint();
+            OnPathPointReached();
         }
 
         private void GoToPathPoint()
         {
-            var pathPoint = _path[_pathIndex];
+            var pathPoint = (Vector3)_path.path[_pathIndex].position;
             var direction = pathPoint - transform.position;
             var distance = direction.magnitude;
             var targetRotation = Quaternion.LookRotation(direction);
@@ -77,7 +86,7 @@ namespace Agents
         private void OnPathPointReached()
         {
             _pathIndex++;
-            if (_pathIndex < _path.Length)
+            if (_pathIndex < _path.path.Count)
             {
                 GoToPathPoint();
             }
@@ -90,7 +99,7 @@ namespace Agents
         private void ReachedTarget()
         {
             OnReachedTarget?.Invoke(this);
-            SetNewPath();
+            RequestNewPah();
         }
     }
 }
