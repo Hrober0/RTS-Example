@@ -44,7 +44,7 @@ namespace UI
 
         private void UpdateGameSpeedLabel()
         {
-            _gameSpeedLabel.text = $"{_tickService.GameSpeed}";
+            _gameSpeedLabel.text = $"{_tickService.GameSpeed:F2}";
         }
 
         private void ChangePauseState()
