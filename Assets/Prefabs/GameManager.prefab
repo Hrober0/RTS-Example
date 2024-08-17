@@ -1,49 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &150877480605281621
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6197473583586770457}
-  - component: {fileID: 4388333058095235238}
-  m_Layer: 0
-  m_Name: Pathfinding
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6197473583586770457
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150877480605281621}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6930613833803124066}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4388333058095235238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150877480605281621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1960eaf120a8bf44fb4da2bb3a5c23ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5254682815229275306
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +30,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1214107893882438389}
-  - {fileID: 6197473583586770457}
   - {fileID: 653981293092564668}
   - {fileID: 4530511344580440763}
   m_Father: {fileID: 0}
@@ -94,7 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _services:
   - objectRef: {fileID: 2987943570022331455}
-  - objectRef: {fileID: 4388333058095235238}
   - objectRef: {fileID: 4391425426246570295}
   - objectRef: {fileID: 7542966226146666749}
 --- !u!1 &8536359744553935283
@@ -150,7 +104,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4351428055691730745, guid: e5683637751a6ed498fa8d1870cc8f80, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4351428055691730745, guid: e5683637751a6ed498fa8d1870cc8f80, type: 3}
       propertyPath: m_LocalPosition.x
@@ -223,7 +177,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1202716527458187178, guid: ae6b6c184711df64fbe5c73980669a17, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1202716527458187178, guid: ae6b6c184711df64fbe5c73980669a17, type: 3}
       propertyPath: m_LocalPosition.x

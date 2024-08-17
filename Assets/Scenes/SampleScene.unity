@@ -307,6 +307,125 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1081835616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081835618}
+  - component: {fileID: 1081835617}
+  m_Layer: 0
+  m_Name: Pathfinding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1081835617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081835616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIeytdUONXgIAABkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzk0GG6ckvbUOIT0kYUo7ufgirDXWIEsefQRIhv/elSyw43Cxefve7tvVyh+ES9NCaZVeas6eFAPyY0L8O/k26YOPcKBbJdf8Hc6cV85s7Uk0cP5QyxXiiZcZ1YDVvPwpt8KTpwg6ySulmwXbQq6MNQhXVBjAkFbWqyVCHxNyiIJjfL775+SEbyVIC7pnZddpcoe/WTKiJ7PrmyRInCwFbVpg3nqvnKVRMUsDTWJTkTG9vvGllBDcRE/EHtvQc05b47AjJDBOscfgxlevgW9ri3/SofilqgzYaEzT4z3XOKouK/mluvk11Ow6Z29UOLh026V8+hK96jqrtGoez1WTqa9ga17u/tBjSY0djHcI33+27eSeih3dCHitQT6rpVZOMgxa7bzUGUjvB6kuneU1lLue13kdga79eqBJf6Cn0PshF7zZXOaOwFqoMO3Ma0DjyfxGw2FBTMyEqDfxz8Bfuh1uUgw8cG0shmJB6d1tlNOeShZhZr4ZZ3OlJQQ4em5BUmGPK0xjxwc4ig3KjiIP1N+ZWDzGzldhJAlwz59OR6GV2l8Oy9Rq/wSmfnFWcAm9aR94xjnlSspuv8znoFetna5oOVBtHWefN4vM7rIqvZt/T2kyz26z+RXAbVVtEpZU801WZTckrB6X2CYVq85nnA4emuyTS1yz85dkstS0DavONN0v+XujBv64rNS61ADypctwnpABjUXwUrIF4zifNVjLZThu8lEQocodsOKSqAidLg5W06LPUpCWvynrkYLk4ftREA9fNnml4Y3D3hc/JzuR039QSwMEFAAACAgAAAgh7MqtOKxtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKxpUmakaW5mVGiobmJhYm5bmqqRVpakmGKYZp5kkmaialSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7K11Q41eAgAAGQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7MqtOKxtAAAAeAAAAAkAJAAAAAAAAAAAAAAAqwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABjAwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1081835618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081835616}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +666,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1512881672686092017, guid: e819e5a3c3b354e4c979383d67e7b679, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAAAIIezEGW37XQIAAB0FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMuSojAU/RUr62lLENtxdjNo27Owtdqe6g2bSC6SMiRUHj7Lf58kgND0Cuqcc+899wE3RLkqIdVCLiUlK0EA/Rog945+DFryFc54L/iWXqHRfFKicyfCXvOONRUWD1yYEgVoSdPffM+ceGRBw2kmZLEge4iF0srCGWYKLCWFdtHcQrcBOtcBl/p5dc/B3b6lwDXIVhUOw+cwnETToCcPgmE0fZ6Ow7GPMzxluCiBOP9teNRUiar03HZWK1zCVDBGVW0L6Uvp245xqYxtygoIxbZNb8jpc6D7XDtb3eB1linQtTeJL3Mq7bSqrOiPqEZYYHWofB0xM/BouEq5+sY+BZ7OpChem6rByFXQOU0P7/iSYqU7E+7C86+2DT9hdsA7Bp858DexlMJwYkktjQs1CsJ5J9WjsziH9NDqKq890JTfdxq0O7373s8xo8XOIcNJBWyZ8NOeuRiQdi9/rWF/I6rOZFFn4p+CD7zvHlNNvFCptKXqgty52wkjnRQt/MxcM0bHQnLwcO25BI6ZvmxsGt1fYI/rlO0xL9h9NnXxmmu+hl6Ih1v9aNSjNuL0WJbKxWkFKl8bzSiH1rQj3uycYsF5dV/dmTRhWyMznHbC9oaSr6eFSLSD8WwWZdlkN8nG+GlEYBJBNiN4QuBnRJC/Pcptn5htKqP1eOzWeJuc2ztr/iaDpcSlv3Ui8WlJr4XojJzyTGxTCcDXVYaHcZC2iP0myYJQO6AtaE253ze6JYiJ9AAkeSRKfKeLs5Y4abMkqKRHoR2SoNj/QxLk4McpbyQcKZxc8SbZHd3/A1BLAwQUAAAICAAACCHswP0knW0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UopJUqqxpaVJWpppkmmacaKuQUqqqUlqmmVKomlKqoVJilIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsxBlt+10CAAAdBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHswP0knW0AAAB4AAAACQAkAAAAAAAAAAAAAACqAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGIDAAAAAA==
+      objectReference: {fileID: 0}
     - target: {fileID: 5254682815229275306, guid: e819e5a3c3b354e4c979383d67e7b679, type: 3}
       propertyPath: m_Name
       value: GameManager
